@@ -10,6 +10,12 @@ Pending tasks: </br>
 * Sentiment analysis
 
 </br>
+
 Completed tasks </br>
 
 * Data cleaning 
+
+</br>
+
+Weekly Discussion: </br>
+https://docs.google.com/document/d/1ZBVo4pm7eZFnHTIKzRplD9jngHOALMa0nMAEKS_3hrs/edit?ts=5c88c4e1
