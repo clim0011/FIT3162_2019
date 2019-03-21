@@ -11,7 +11,7 @@ Pending tasks: </br>
 
 </br>
 
-Completed tasks </br>
+Completed tasks: </br>
 
 * Data cleaning 
 
