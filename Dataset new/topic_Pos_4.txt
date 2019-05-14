@@ -1,0 +1,32 @@
+
+Topic: 0 
+Word: 0.012*"hotel" + 0.011*"room" + 0.008*"staff" + 0.008*"stay" + 0.008*"service" + 0.007*"look" + 0.007*"great" + 0.007*"helpful" + 0.006*"good" + 0.006*"concierge"
+Topic: 1 
+Word: 0.041*"view" + 0.032*"value" + 0.028*"barcelona" + 0.025*"money" + 0.022*"central" + 0.022*"good" + 0.021*"amsterdam" + 0.019*"location" + 0.017*"great" + 0.016*"room"
+Topic: 2 
+Word: 0.038*"cleanliness" + 0.028*"decor" + 0.021*"large" + 0.019*"staff" + 0.019*"convenient" + 0.018*"location" + 0.018*"kind" + 0.018*"wonderful" + 0.017*"stuff" + 0.016*"room"
+Topic: 3 
+Word: 0.010*"room" + 0.010*"breakfast" + 0.009*"staff" + 0.009*"free" + 0.009*"hotel" + 0.008*"great" + 0.007*"nice" + 0.007*"good" + 0.007*"stay" + 0.007*"water"
+Topic: 4 
+Word: 0.017*"pleasant" + 0.012*"hotel" + 0.011*"location" + 0.010*"staff" + 0.010*"walk" + 0.010*"helpfull" + 0.010*"great" + 0.009*"room" + 0.008*"nice" + 0.008*"good"
+Topic: 5 
+Word: 0.080*"location" + 0.068*"staff" + 0.064*"good" + 0.062*"friendly" + 0.054*"great" + 0.050*"clean" + 0.049*"helpful" + 0.044*"comfortable" + 0.043*"room" + 0.042*"breakfast"
+Topic: 6 
+Word: 0.034*"pool" + 0.022*"perfect" + 0.020*"like" + 0.018*"room" + 0.016*"rooftop" + 0.014*"facilities" + 0.014*"location" + 0.013*"nice" + 0.013*"great" + 0.011*"coffee"
+Topic: 7 
+Word: 0.024*"beach" + 0.016*"love" + 0.016*"check" + 0.015*"design" + 0.013*"hotel" + 0.012*"superb" + 0.010*"lobby" + 0.010*"room" + 0.010*"staff" + 0.009*"great"
+Topic: 8 
+Word: 0.031*"roof" + 0.023*"wifi" + 0.021*"terrace" + 0.013*"good" + 0.013*"room" + 0.012*"breakfast" + 0.011*"location" + 0.011*"fine" + 0.011*"free" + 0.011*"great"
+Topic: 9 
+Word: 0.026*"close" + 0.023*"station" + 0.018*"walk" + 0.017*"metro" + 0.015*"location" + 0.014*"good" + 0.014*"easy" + 0.013*"city" + 0.013*"near" + 0.013*"hotel"
+
+0: B
+1: L
+2: B
+3: L
+4: 
+5: L
+6: L
+7: L
+8: 
+9: L
