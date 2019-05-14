@@ -1,0 +1,21 @@
+
+Topic: 0 
+Word: 0.014*"check" + 0.012*"room" + 0.010*"book" + 0.009*"staff" + 0.009*"time" + 0.008*"work" + 0.008*"hotel" + 0.007*"condition" + 0.007*"tell" + 0.007*"reception"
+Topic: 1 
+Word: 0.018*"breakfast" + 0.016*"service" + 0.015*"food" + 0.013*"restaurant" + 0.009*"staff" + 0.008*"menu" + 0.007*"english" + 0.007*"poor" + 0.007*"hotel" + 0.007*"order"
+Topic: 2 
+Word: 0.020*"room" + 0.019*"view" + 0.017*"bathroom" + 0.015*"window" + 0.013*"light" + 0.013*"open" + 0.012*"think" + 0.012*"fault" + 0.011*"shower" + 0.010*"door"
+Topic: 3 
+Word: 0.049*"perfect" + 0.033*"slow" + 0.030*"dislike" + 0.023*"lift" + 0.019*"amsterdam" + 0.018*"thing" + 0.017*"need" + 0.017*"soft" + 0.016*"improve" + 0.011*"overprice"
+Topic: 4 
+Word: 0.017*"stay" + 0.016*"pricey" + 0.015*"hotel" + 0.013*"money" + 0.013*"room" + 0.013*"date" + 0.013*"value" + 0.011*"longer" + 0.010*"little" + 0.010*"excellent"
+Topic: 5 
+Word: 0.021*"good" + 0.017*"clean" + 0.014*"staff" + 0.013*"room" + 0.011*"bathroom" + 0.009*"towel" + 0.009*"dirty" + 0.008*"carpet" + 0.008*"friendly" + 0.008*"shower"
+Topic: 6 
+Word: 0.030*"wifi" + 0.021*"water" + 0.020*"pillow" + 0.020*"coffee" + 0.018*"hard" + 0.017*"shower" + 0.014*"free" + 0.014*"room" + 0.013*"work" + 0.012*"internet"
+Topic: 7 
+Word: 0.075*"small" + 0.047*"room" + 0.037*"pool" + 0.022*"size" + 0.021*"great" + 0.018*"double" + 0.016*"facilities" + 0.016*"little" + 0.016*"bed" + 0.015*"swim"
+Topic: 8 
+Word: 0.063*"breakfast" + 0.063*"expensive" + 0.047*"like" + 0.039*"price" + 0.025*"include" + 0.017*"better" + 0.013*"love" + 0.012*"drink" + 0.012*"high" + 0.012*"park"
+Topic: 9 
+Word: 0.016*"noisy" + 0.016*"noise" + 0.015*"location" + 0.015*"hotel" + 0.014*"city" + 0.012*"walk" + 0.011*"centre" + 0.010*"hear" + 0.010*"night" + 0.010*"center"
