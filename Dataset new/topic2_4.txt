@@ -1,0 +1,5 @@
+
+Topic: 0 
+Word: 0.043*"location" + 0.037*"good" + 0.030*"staff" + 0.028*"great" + 0.025*"friendly" + 0.025*"clean" + 0.023*"breakfast" + 0.022*"helpful" + 0.020*"hotel" + 0.020*"excellent"
+Topic: 1 
+Word: 0.014*"room" + 0.014*"comfy" + 0.012*"lovely" + 0.012*"view" + 0.010*"nice" + 0.009*"staff" + 0.009*"bed" + 0.008*"pool" + 0.008*"hotel" + 0.008*"reception"

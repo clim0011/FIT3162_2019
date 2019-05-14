@@ -1,0 +1,5 @@
+
+Topic: 0 
+Word: 0.039*"location" + 0.036*"staff" + 0.031*"great" + 0.030*"friendly" + 0.030*"good" + 0.027*"helpful" + 0.026*"room" + 0.025*"clean" + 0.025*"nice" + 0.022*"comfortable"
+Topic: 1 
+Word: 0.013*"comfy" + 0.012*"close" + 0.010*"breakfast" + 0.009*"walk" + 0.009*"station" + 0.009*"hotel" + 0.008*"good" + 0.007*"bed" + 0.007*"like" + 0.007*"metro"
