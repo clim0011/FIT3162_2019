@@ -27,19 +27,12 @@ def create_html(output,dataset):
     nationality=file["Reviewer_Nationality"]
     unique_hotel=hotel.unique()
     #print(hotel[1])
-    couple_hotel=[]
-    for i in range(1,len(couple)):
-        hotel_name=hotel[int(couple[i])]
-        if hotel_name not in couple_hotel:
-            couple_hotel.append(hotel_name)
-    #print(couple_hotel)
-    #print(hotel[int(couple[1])])
 
     # creating object 
     response = google_images_download.googleimagesdownload()
     search_queries=""
-    for i in range(3):
-        if i==2:
+    for i in range(len(unique_hotel)):
+        if i==len(unique_hotel)-1:
             search_queries+=unique_hotel[i]
         else:
             search_queries+=unique_hotel[i]+","    
@@ -140,8 +133,8 @@ def create_html(output,dataset):
     </br>
     </br>
     
-"""
-    for i in range(3):
+    """
+    for i in range(len(unique_hotel)):
         message+='<p></p><img src='
         name=unique_hotel[i]
         for l in range(len(hotel_score)):
@@ -153,7 +146,8 @@ def create_html(output,dataset):
         message+="Hotel Name: "+name+"</br>Address: "+hotel_address[first_id]+"</br>Score: "+score+"</p></button>"
         message+='''<div class="content">
             <p>
-          <select onchange="myFunction(this)">
+          <select onchange="myFunction'''
+        message+=str(i)+'''(this)">
           <option></option>
           <option>Couple</option>
           <option>Family</option>
@@ -189,11 +183,128 @@ def create_html(output,dataset):
           content.style.display = "block";
         }
       });
-    }
-    function myFunction(selTag) {
-      var x = selTag.options[selTag.selectedIndex].text;
-      if (x=="Couple") {
-            document.getElementById("demo0").innerHTML = "Hotel 1";'''
+    }'''
+    couple_index=1
+    family_index=1
+    solo_index=1
+    group_index=1
+    for i in range(len(unique_hotel)):
+        name=unique_hotel[i]
+        for l in range(len(hotel_score)):
+            if name in hotel_score[l]:
+                first_id=int(hotel_score[l][1])
+                last_id=int(hotel_score[l][2])
+                break
+        couple_hotel=[]
+        family_hotel=[]
+        solo_hotel=[]
+        group_hotel=[]
+        print(name)
+        print(int(couple[couple_index]))
+        print(i)
+        print(first_id)
+        print(last_id)
+        while True:
+            if int(couple[couple_index])>=first_id and int(couple[couple_index])<=last_id:
+                couple_hotel.append(couple[couple_index])
+                if couple_index==len(couple)-1:
+                    break
+                else:
+                    couple_index+=1
+            elif int(family[family_index])>=first_id and int(family[family_index])<=last_id:
+                family_hotel.append(family[family_index])
+                if family_index==len(family)-1:
+                    break
+                else:
+                    family_index+=1
+            elif int(solo[solo_index])>=first_id and int(solo[solo_index])<=last_id:
+                solo_hotel.append(solo[solo_index])
+                if solo_index==len(solo)-1:
+                    break
+                else:
+                    solo_index+=1
+            elif int(group[group_index])>=first_id and int(group[group_index])<=last_id:
+                group_hotel.append(group[group_index])
+                if group_index==len(group)-1:
+                    break
+                else:
+                    group_index+=1
+            else:
+                break
+
+        print("coupleHotel: "+str(couple_hotel))
+        print("familyHotel: "+str(family_hotel))
+        print("soloHotel: "+str(solo_hotel))
+        print("groupHotel: "+str(group_hotel))
+        message+='''
+        function myFunction'''
+        message+=str(i)+'''(selTag) {
+          var x = selTag.options[selTag.selectedIndex].text;
+          if (x=="Couple") {
+                document.getElementById("demo'''
+        message+=str(i)+'''").innerHTML = "<p>'''
+        if len(couple_hotel)==0:
+            message+='No couple stay here!</p>"'
+        else:
+            for k in range(len(couple_hotel)):
+                index=int(couple_hotel[k])
+                if k==len(couple_hotel)-1:
+                    message+="Nationality of reviewer: " + nationality[index] + "</br></br>Positive: " +  positive_review[index] + "</br></br>Negative:" + negative_review[index] + '</p>";'
+                else:
+                    message+="Nationality of reviewer: " + nationality[index] + "</br></br>Positive: " +  positive_review[index] + "</br></br>Negative:" + negative_review[index] + "</br><hr>"
+
+        message+='''
+          }
+          else if (x=="Family") {
+                document.getElementById("demo'''
+        message+=str(i)+'''").innerHTML = "<p>'''
+        if len(family_hotel)==0:
+            message+='No family stay here!</p>"'
+        else:
+            for k in range(len(family_hotel)):
+                index=int(family_hotel[k])
+                if k==len(family_hotel)-1:
+                    message+="Nationality of reviewer: " + nationality[index] + "</br></br>Positive: " +  positive_review[index] + "</br></br>Negative:" + negative_review[index] + '</p>";'
+                else:
+                    message+="Nationality of reviewer: " + nationality[index] + "</br></br>Positive: " +  positive_review[index] + "</br></br>Negative:" + negative_review[index] + "</br><hr>"
+        message+='''
+          }
+          else if (x=="Solo") {
+                document.getElementById("demo'''
+        message+=str(i)+'''").innerHTML = "<p>'''
+        if len(solo_hotel)==0:
+            message+='No solo stay here!</p>"'
+        else:
+            for k in range(len(solo_hotel)):
+                index=int(solo_hotel[k])
+                if k==len(solo_hotel)-1:
+                    message+="Nationality of reviewer: " + nationality[index] + "</br></br>Positive: " +  positive_review[index] + "</br></br>Negative:" + negative_review[index] + '</p>";'
+                else:
+                    message+="Nationality of reviewer: " + nationality[index] + "</br></br>Positive: " +  positive_review[index] + "</br></br>Negative:" + negative_review[index] + "</br><hr>"
+        message+='''
+          }
+          else if (x=="Group") {
+                document.getElementById("demo'''
+        message+=str(i)+'''").innerHTML = "<p>'''
+        if len(group_hotel)==0:
+            message+='No group stay here!</p>"'
+        else:
+            for k in range(len(group_hotel)):
+                index=int(group_hotel[k])
+                if k==len(group_hotel)-1:
+                    message+="Nationality of reviewer: " + nationality[index] + "</br></br>Positive: " +  positive_review[index] + "</br></br>Negative:" + negative_review[index] + '</p>";'
+                else:
+                    message+="Nationality of reviewer: " + nationality[index] + "</br></br>Positive: " +  positive_review[index] + "</br></br>Negative:" + negative_review[index] + "</br><hr>"
+        message+='''
+          }
+          else if (x=="") {
+                document.getElementById("demo'''
+        message+=str(i)+'''").innerHTML = "Please select one of the 4 groups!";
+          }
+        }
+        '''
+
+
     """
     for i in range(len(unique_hotel)):
         name=unique_hotel[i]
@@ -214,20 +325,7 @@ def create_html(output,dataset):
             else:
                 message+='</p>";'
                 break"""
-                
-    message+='''
-      }
-      else if (x=="Family") {
-            document.getElementById("demo0").innerHTML = "Hotel 2";
-      }
-      else if (x=="Solo") {
-            document.getElementById("demo0").innerHTML = "Hotel 3";
-      }
-      else if (x=="Group") {
-            document.getElementById("demo0").innerHTML = "Hotel 4";
-      }
-      else if (x=="") {
-            document.getElementById("demo0").innerHTML = "Hotels";'''
+      
     '''
     for i in range(len(hotel)):
         if i==len(hotel)-1:
@@ -236,8 +334,6 @@ def create_html(output,dataset):
             message+="Reviewer's nationality: " + nationality[i] + "</br></br>Positive: " +  positive_review[i] + "</br></br>Negative:" + negative_review[i] + "</br><hr>"
     '''
     message+="""
-      }
-    }
     </script>"""
     message+="</body></html>"
     
