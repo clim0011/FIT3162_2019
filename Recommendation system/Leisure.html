@@ -1,0 +1,93 @@
+<!--
+Author: Teh Run Xun
+CSS from: W3Schools (https://www.w3schools.com/w3css/w3css_downloads.asp)
+Align picture: https://css-tricks.com/forums/topic/how-do-you-fluidly-align-6-images-horizontally-and-spaced-evenly/
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Leisure</title>
+</head>
+<body>
+<style>
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #c19a6b;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #8b5a2b;
+}
+
+.button {
+    background-color: #c19a6b;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 6px 18px;
+    cursor: pointer;
+}
+
+#img_cont {
+  display: table;
+  width: 100%;
+  margin: 80px auto;
+}
+
+#img_cont a {
+  display: table-cell;
+  text-align: center;
+  width: 20%;
+}
+
+#img_cont img {
+  width: 70%;
+  max-width: 900px;
+}
+</style>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<h1 style="color:black;font-family:Times;text-align:center;font-size:60px ">Hotel recommendation system</h1>
+<body>
+<ul>
+  <li><a href="page.html">Home</a></li>
+  <li><a href="Business.html">Business</a></li>
+  <li><a href="Leisure.html">Leisure</a></li>
+</ul>
+
+<p id="img_cont">
+    <a href="Hotel_Austria_Leisure.html"><img src="Austria1.jpg" /></a>
+    <a href="Hotel_France_Leisure.html"><img src="France1.jpg" /></a>
+    <a href="Hotel_Italy_Leisure.html"><img src="Italy1.jpg" /></a>
+</p>
+
+<p id="img_cont">
+    <a href="Hotel_Kingdom_Leisure.html"><img src="United Kingdom1.jpg" /></a>
+    <a href="Hotel_Netherlands_Leisure.html"><img src="Netherlands1.jpg" /></a>
+    <a href="Hotel_Spain_Leisure.html"><img src="Spain1.jpg" /></a>
+</p>
+
+</body>
+</html>

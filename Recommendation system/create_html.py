@@ -2,14 +2,14 @@
 import pandas as pd
 from google_images_download import google_images_download  
 
-def create_html(output,dataset):
+def create_html(output,dataset,country):
 
     out=open(output,"r")
     txt=[]
     for line in out:
         line=line.strip("\n").split(",")
         txt.append(line)
-
+    country=country
     couple=txt[0]
     family=txt[1]
     solo=txt[2]
@@ -42,12 +42,7 @@ def create_html(output,dataset):
     #print(paths)
     #print(paths[0]["Hotel Bellevue Wien"])
     page=output.replace("txt","html")
-    #print(page)
-    #f = open(page,'r')
-    #for line in f:
-        #print("hi")
-        #print(line)
-    f = open("testing.html",'w')
+    f = open(page,'w')
     message = """<!--
     Author: Teh Run Xun
     CSS from: W3Schools (https://www.w3schools.com/w3css/w3css_downloads.asp)
@@ -122,7 +117,8 @@ def create_html(output,dataset):
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <h1 style="color:black;font-family:Times;text-align:center;font-size:60px ">Explore Austria</h1>
+    <h1 style="color:black;font-family:Times;text-align:center;font-size:60px ">Explore """
+    message+=country+"""</h1>
     <body>
 
     <ul>
@@ -303,42 +299,26 @@ def create_html(output,dataset):
           }
         }
         '''
-
-
-    """
-    for i in range(len(unique_hotel)):
-        name=unique_hotel[i]
-        first_id=int(hotel_score[i][1])
-        last_id=int(hotel_score[i][2])
-        x=1
-        add=False
-        while x>=1:
-            index=int(couple[x])
-            print(index)
-            if index>=first_id and index<=last_id:
-                if add==True:
-                    message+="</br><hr>"
-                else:
-                    message+="Reviewer's nationality: " + nationality[i] + "</br></br>Positive: " +  positive_review[i] + "</br></br>Negative:" + negative_review[i]
-                    add=True
-                    x+=1
-            else:
-                message+='</p>";'
-                break"""
-      
-    '''
-    for i in range(len(hotel)):
-        if i==len(hotel)-1:
-            message+="Reviewer's nationality: " + nationality[i] + "</br></br>Positive: " +  positive_review[i] + "</br></br>Negative:" + negative_review[i] + '</p>";'
-        else:
-            message+="Reviewer's nationality: " + nationality[i] + "</br></br>Positive: " +  positive_review[i] + "</br></br>Negative:" + negative_review[i] + "</br><hr>"
-    '''
     message+="""
-    </script>"""
-    message+="</body></html>"
+    </script></body></html>"""
     
     f.write(message)
     f.close()
 
+"""
+create_html("Hotel_Austria_Business.txt","Austria_Business.csv","Austria")
+create_html("Hotel_France_Business.txt","France_Business.csv","France")
+create_html("Hotel_Italy_Business.txt","Italy_Business.csv","Italy")
+create_html("Hotel_Kingdom_Business.txt","Kingdom_Business.csv","Kingdom")
+create_html("Hotel_Netherlands_Business.txt","Netherlands_Business.csv","Netherlands")
+create_html("Hotel_Spain_Business.txt","Spain_Business.csv","Spain")
+"""
+create_html("Hotel_Austria_Leisure.txt","Austria_Leisure.csv","Austria")
+create_html("Hotel_France_Leisure.txt","France_Leisure.csv","France")
+create_html("Hotel_Italy_Leisure.txt","Italy_Leisure.csv","Italy")
+create_html("Hotel_Kingdom_Leisure.txt","Kingdom_Leisure.csv","Kingdom")
+create_html("Hotel_Netherlands_Leisure.txt","Netherlands_Leisure.csv","Netherlands")
+create_html("Hotel_Spain_Leisure.txt","Spain_Leisure.csv","Spain")
 
-create_html("Hotel_Austria_Business.txt","Austria_Business.csv")
+
+
