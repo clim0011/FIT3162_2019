@@ -14,29 +14,31 @@ def create_html(output,dataset,country):
     family=txt[1]
     solo=txt[2]
     group=txt[3]
-    hotel_score=txt[4:len(txt)]
+    hotel=txt[4:len(txt)]
     #print(hotel)
     #couple[2] for austria hotel should give us 5
     #print(couple[2])
     
     file=pd.read_csv(dataset)
-    hotel=file["Hotel_Name"]
     hotel_address=file["Hotel_Address"]
     negative_review=file["Negative_Review"]
     positive_review=file["Positive_Review"]
     nationality=file["Reviewer_Nationality"]
-    unique_hotel=hotel.unique()
-    #print(hotel[1])
+    tags=file["Tags"]
+    hotel_test=file["Hotel_Name"]
+
+    # Sort hotel score (descending order)
+    hotel.sort(key=lambda hotel: hotel[3], reverse=True)
 
     # creating object 
     response = google_images_download.googleimagesdownload()
     search_queries=""
-    for i in range(len(unique_hotel)):
-        if i==len(unique_hotel)-1:
-            search_queries+=unique_hotel[i]
+    print(hotel[0])
+    for i in range(len(hotel)):
+        if i==len(hotel)-1:
+            search_queries+=hotel[i][0]
         else:
-            search_queries+=unique_hotel[i]+","    
-
+            search_queries+=hotel[i][0]+","    
     arguments = {"keywords": search_queries, "format": "jpg", "limit":1, "no_download":True}
     paths=response.download(arguments)
     #print(paths)
@@ -130,14 +132,15 @@ def create_html(output,dataset,country):
     </br>
     
     """
-    for i in range(len(unique_hotel)):
+    for i in range(len(hotel)):
         message+='<p></p><img src='
-        name=unique_hotel[i]
-        for l in range(len(hotel_score)):
-            if name in hotel_score[l]:
-                first_id=int(hotel_score[l][1])
-                score=hotel_score[l][3]
+        name=hotel[i][0]
+        for l in range(len(hotel)):
+            if name in hotel[l]:
+                first_id=int(hotel[l][1])
+                score=hotel[l][3]
                 break
+
         message+='"'+paths[0][name][0]+'" width=200 height=200><button class="collapsible"><p>'
         message+="Hotel Name: "+name+"</br>Address: "+hotel_address[first_id]+"</br>Score: "+score+"</p></button>"
         message+='''<div class="content">
@@ -180,58 +183,28 @@ def create_html(output,dataset,country):
         }
       });
     }'''
-    couple_index=1
-    family_index=1
-    solo_index=1
-    group_index=1
-    for i in range(len(unique_hotel)):
-        name=unique_hotel[i]
-        for l in range(len(hotel_score)):
-            if name in hotel_score[l]:
-                first_id=int(hotel_score[l][1])
-                last_id=int(hotel_score[l][2])
-                break
+    for i in range(len(hotel)):
         couple_hotel=[]
         family_hotel=[]
         solo_hotel=[]
         group_hotel=[]
-        print(name)
-        print(int(couple[couple_index]))
-        print(i)
-        print(first_id)
-        print(last_id)
-        while True:
-            if int(couple[couple_index])>=first_id and int(couple[couple_index])<=last_id:
-                couple_hotel.append(couple[couple_index])
-                if couple_index==len(couple)-1:
-                    break
-                else:
-                    couple_index+=1
-            elif int(family[family_index])>=first_id and int(family[family_index])<=last_id:
-                family_hotel.append(family[family_index])
-                if family_index==len(family)-1:
-                    break
-                else:
-                    family_index+=1
-            elif int(solo[solo_index])>=first_id and int(solo[solo_index])<=last_id:
-                solo_hotel.append(solo[solo_index])
-                if solo_index==len(solo)-1:
-                    break
-                else:
-                    solo_index+=1
-            elif int(group[group_index])>=first_id and int(group[group_index])<=last_id:
-                group_hotel.append(group[group_index])
-                if group_index==len(group)-1:
-                    break
-                else:
-                    group_index+=1
-            else:
-                break
+        first_id=int(hotel[i][1])
+        last_id=int(hotel[i][2])
+        for l in range(first_id,last_id+1):
+            x=tags[l].split()
+            if x[5]=="Couple":
+                couple_hotel.append(l)
+            elif x[5]=="Family":
+                family_hotel.append(l)
+            elif x[5]=="Solo":
+                solo_hotel.append(l)
+            elif x[5]=="Group":
+                group_hotel.append(l)
 
-        print("coupleHotel: "+str(couple_hotel))
-        print("familyHotel: "+str(family_hotel))
-        print("soloHotel: "+str(solo_hotel))
-        print("groupHotel: "+str(group_hotel))
+        #print("coupleHotel: "+str(couple_hotel))
+        #print("familyHotel: "+str(family_hotel))
+        #print("soloHotel: "+str(solo_hotel))
+        #print("groupHotel: "+str(group_hotel))
         message+='''
         function myFunction'''
         message+=str(i)+'''(selTag) {
@@ -319,6 +292,5 @@ create_html("Hotel_Italy_Leisure.txt","Italy_Leisure.csv","Italy")
 create_html("Hotel_Kingdom_Leisure.txt","Kingdom_Leisure.csv","Kingdom")
 create_html("Hotel_Netherlands_Leisure.txt","Netherlands_Leisure.csv","Netherlands")
 create_html("Hotel_Spain_Leisure.txt","Spain_Leisure.csv","Spain")
-
 
 
