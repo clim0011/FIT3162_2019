@@ -15,9 +15,6 @@ def create_html(output,dataset,country):
     solo=txt[2]
     group=txt[3]
     hotel=txt[4:len(txt)]
-    #print(hotel)
-    #couple[2] for austria hotel should give us 5
-    #print(couple[2])
     
     file=pd.read_csv(dataset)
     hotel_address=file["Hotel_Address"]
@@ -41,8 +38,6 @@ def create_html(output,dataset,country):
             search_queries+=hotel[i][0]+","    
     arguments = {"keywords": search_queries, "format": "jpg", "limit":1, "no_download":True}
     paths=response.download(arguments)
-    #print(paths)
-    #print(paths[0]["Hotel Bellevue Wien"])
     page=output.replace("txt","html")
     f = open(page,'w')
     message = """<!--
@@ -124,7 +119,7 @@ def create_html(output,dataset,country):
     <body>
 
     <ul>
-        <li><a href="page.html">Home</a></li>
+        <li><a href="Homepage.html">Home</a></li>
         <li><a href="Business.html">Business</a></li>
         <li><a href="Leisure.html">Leisure</a></li>
     </ul>
@@ -201,10 +196,6 @@ def create_html(output,dataset,country):
             elif x[5]=="Group":
                 group_hotel.append(l)
 
-        #print("coupleHotel: "+str(couple_hotel))
-        #print("familyHotel: "+str(family_hotel))
-        #print("soloHotel: "+str(solo_hotel))
-        #print("groupHotel: "+str(group_hotel))
         message+='''
         function myFunction'''
         message+=str(i)+'''(selTag) {
@@ -278,14 +269,14 @@ def create_html(output,dataset,country):
     f.write(message)
     f.close()
 
-"""
+
 create_html("Hotel_Austria_Business.txt","Austria_Business.csv","Austria")
 create_html("Hotel_France_Business.txt","France_Business.csv","France")
 create_html("Hotel_Italy_Business.txt","Italy_Business.csv","Italy")
 create_html("Hotel_Kingdom_Business.txt","Kingdom_Business.csv","Kingdom")
 create_html("Hotel_Netherlands_Business.txt","Netherlands_Business.csv","Netherlands")
 create_html("Hotel_Spain_Business.txt","Spain_Business.csv","Spain")
-"""
+
 create_html("Hotel_Austria_Leisure.txt","Austria_Leisure.csv","Austria")
 create_html("Hotel_France_Leisure.txt","France_Leisure.csv","France")
 create_html("Hotel_Italy_Leisure.txt","Italy_Leisure.csv","Italy")
